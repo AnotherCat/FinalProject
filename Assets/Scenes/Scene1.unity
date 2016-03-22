@@ -365,7 +365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2511b6e94d423142873a59e81c9c044, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 195
+  Speed: 198
   shiftSpeed: 200
   missile: {fileID: 881632279}
 --- !u!50 &1676415742
@@ -581,7 +581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0353cef875ca35d439892e28d63ed00d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_DampTime: 0.2
+  m_DampTime: 0
   m_ScreenEdgeBuffer: 4
   m_MinSize: 6.5
   m_Targets:
