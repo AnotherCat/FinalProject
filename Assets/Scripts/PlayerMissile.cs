@@ -19,7 +19,9 @@ public class PlayerMissile : MonoBehaviour {
     {
         rb2d.AddForce(new Vector2(0, Speed * Time.deltaTime * bootsMultiply));
 
-#if UNITY_EDITOR
+#if UNITY_ANDROID
+
+#else
         if(Input.GetKey(KeyCode.LeftArrow) && !GameOver)
         {
             rb2d.AddForce(new Vector2(shiftSpeed * -1 * Time.deltaTime * bootsMultiply,0));
