@@ -7,6 +7,8 @@ public class PlayerMissile : MonoBehaviour {
     public float shiftSpeed = 200;
     public float bootsMultiply = 1;
 
+    public ParticleSystem explodePS;
+
     bool GameOver = false;
     Rigidbody2D rb2d;
 
@@ -38,8 +40,21 @@ public class PlayerMissile : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D c)
     {
-        Debug.Log("Booms!!!");
         GameOver = true;
+        ParticleSystem explode = Instantiate(explodePS, transform.position, Quaternion.identity) as ParticleSystem;
+
+
+        //c.gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
+        c.gameObject.GetComponentInChildren<ParticleSystem>().emissionRate = 0;
+        //GetComponent<Rigidbody2D>().isKinematic = true;
+        GetComponentInChildren<ParticleSystem>().emissionRate = 0;
+
+
+        Invoke("BeforeGameover", 3.0f);
     }
 	
+    void BeforeGameover()
+    {
+        Time.timeScale = 0;
+    }
 }

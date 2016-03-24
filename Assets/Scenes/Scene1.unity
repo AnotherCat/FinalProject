@@ -176,6 +176,7 @@ MonoBehaviour:
   Speed: 200
   shiftSpeed: 200
   bootsMultiply: 1
+  explodePS: {fileID: 19811490, guid: c7cc14a35648a9b43b4a8dd75fe87c76, type: 2}
 --- !u!50 &881632281
 Rigidbody2D:
   serializedVersion: 2
