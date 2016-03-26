@@ -56,6 +56,9 @@ public class PlayerMissile : MonoBehaviour {
         GetComponent<Rigidbody2D>().isKinematic = true;
         GetComponentInChildren<ParticleSystem>().enableEmission = false;
 
+        c.transform.GetComponentInChildren<SpriteRenderer>().enabled = false;
+        transform.GetComponentInChildren<SpriteRenderer>().enabled = false;
+
         Invoke("BeforeGameover", 3.0f);
     }
 	

@@ -995,7 +995,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 198
-  shiftSpeed: 200
+  shiftSpeed: 190
   missile: {fileID: 881632279}
 --- !u!50 &1676415742
 Rigidbody2D:

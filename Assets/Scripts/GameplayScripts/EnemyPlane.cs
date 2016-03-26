@@ -22,16 +22,10 @@ public class EnemyPlane : MonoBehaviour {
         if (transform.position.x <= missile.transform.position.x && Vector2.Distance(transform.position, missile.position) < 8)
         {
             rb2d.AddForce(new Vector2(shiftSpeed * -1 * Time.deltaTime, 0));
-            missile.GetComponentInChildren<SpriteRenderer>().color = Color.red;
         }
         else if(transform.position.x > missile.transform.position.x && Vector2.Distance(transform.position, missile.position) < 8)
         {
             rb2d.AddForce(new Vector2(shiftSpeed * Time.deltaTime, 0));
-            missile.GetComponentInChildren<SpriteRenderer>().color = Color.red;
-        }
-        else
-        {
-            missile.GetComponentInChildren<SpriteRenderer>().color = Color.green;
         }
     }
     
