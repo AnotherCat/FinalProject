@@ -49,7 +49,7 @@ public class PlayerMissile : MonoBehaviour {
     {
         GameOver = true;
         ParticleSystem explode = Instantiate(explodePS, transform.position, Quaternion.identity) as ParticleSystem;
-
+        Destroy(explode.gameObject, 3);
 
         c.gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
         c.gameObject.GetComponentInChildren<ParticleSystem>().enableEmission = false;
