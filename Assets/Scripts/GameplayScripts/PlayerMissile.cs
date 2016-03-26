@@ -51,9 +51,9 @@ public class PlayerMissile : MonoBehaviour {
         ParticleSystem explode = Instantiate(explodePS, transform.position, Quaternion.identity) as ParticleSystem;
 
 
-        c.gameObject.GetComponent<Rigidbody2D>().drag = 5;
+        c.gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
         c.gameObject.GetComponentInChildren<ParticleSystem>().enableEmission = false;
-        GetComponent<Rigidbody2D>().drag = 5;
+        GetComponent<Rigidbody2D>().isKinematic = true;
         GetComponentInChildren<ParticleSystem>().enableEmission = false;
 
         Invoke("BeforeGameover", 3.0f);
