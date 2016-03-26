@@ -8,6 +8,7 @@ public class PlayerMissile : MonoBehaviour {
     public float bootsMultiply = 1;
 
     public ParticleSystem explodePS;
+    public Transform plane;
 
     bool GameOver = false;
     Rigidbody2D rb2d;
@@ -17,7 +18,7 @@ public class PlayerMissile : MonoBehaviour {
         rb2d = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         rb2d.AddForce(new Vector2(0, Speed * Time.deltaTime * bootsMultiply));
 
@@ -36,6 +37,12 @@ public class PlayerMissile : MonoBehaviour {
             bootsMultiply = 2;
         }
 #endif
+
+
+        if(Vector2.Distance(transform.position,plane.position) > 10)
+        {
+            Invoke("BeforeGameover", 1.0f);
+        }
     }
 
     void OnCollisionEnter2D(Collision2D c)
@@ -44,17 +51,16 @@ public class PlayerMissile : MonoBehaviour {
         ParticleSystem explode = Instantiate(explodePS, transform.position, Quaternion.identity) as ParticleSystem;
 
 
-        //c.gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
-        c.gameObject.GetComponentInChildren<ParticleSystem>().emissionRate = 0;
-        //GetComponent<Rigidbody2D>().isKinematic = true;
-        GetComponentInChildren<ParticleSystem>().emissionRate = 0;
-
+        c.gameObject.GetComponent<Rigidbody2D>().drag = 5;
+        c.gameObject.GetComponentInChildren<ParticleSystem>().enableEmission = false;
+        GetComponent<Rigidbody2D>().drag = 5;
+        GetComponentInChildren<ParticleSystem>().enableEmission = false;
 
         Invoke("BeforeGameover", 3.0f);
     }
 	
     void BeforeGameover()
     {
-        Time.timeScale = 0;
+        UIManager.instance.OnGameOver();
     }
 }
