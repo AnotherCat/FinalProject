@@ -72,6 +72,8 @@ public class PlayerMissile : MonoBehaviour {
         c.transform.GetComponentInChildren<SpriteRenderer>().enabled = false;
         transform.GetComponentInChildren<SpriteRenderer>().enabled = false;
 
+        GetComponent<AudioSource>().Play();
+
         Invoke("Win", 3.0f);
     }
 	
