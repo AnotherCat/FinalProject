@@ -5,7 +5,7 @@ public class AspectCamera : MonoBehaviour {
 
     public float targetaspect = 16.0f / 9.0f;
 
-    void Start()
+    void Awake()
     {
 
         // determine the game window's current aspect ratio

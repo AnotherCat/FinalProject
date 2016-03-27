@@ -16,6 +16,7 @@ public class PlayerMissile : MonoBehaviour {
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        transform.position = new Vector2(Random.Range(Camera.main.transform.position.x - Camera.main.orthographicSize * Screen.width / Screen.height, Camera.main.transform.position.x + Camera.main.orthographicSize * Screen.width / Screen.height),transform.position.y);
     }
 
     void FixedUpdate()
@@ -39,7 +40,7 @@ public class PlayerMissile : MonoBehaviour {
 #endif
 
 
-        if(Vector2.Distance(transform.position,plane.position) > 10)
+        if(Vector2.Distance(transform.position,plane.position) > 15)
         {
             Invoke("BeforeGameover", 1.0f);
         }
@@ -49,7 +50,7 @@ public class PlayerMissile : MonoBehaviour {
     {
         GameOver = true;
         ParticleSystem explode = Instantiate(explodePS, transform.position, Quaternion.identity) as ParticleSystem;
-
+        Destroy(explode.gameObject, 3);
 
         c.gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
         c.gameObject.GetComponentInChildren<ParticleSystem>().enableEmission = false;
