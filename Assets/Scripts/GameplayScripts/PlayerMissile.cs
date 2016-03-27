@@ -15,12 +15,13 @@ public class PlayerMissile : MonoBehaviour {
     public ParticleSystem explodePS;
     public ParticleSystem bootsPS;
     public Transform plane;
-
+    
     bool GameOver = false;
     Rigidbody2D rb2d;
 
     void Start()
     {
+
         Speed *= PlayerMissile.Level;
         shiftSpeed *= PlayerMissile.Level;
 
@@ -47,6 +48,7 @@ public class PlayerMissile : MonoBehaviour {
         {
             boots = bootsMultiply;
             bootsPS.enableEmission = true;
+            Camera.main.GetComponent<AudioSource>().pitch = 1.2f;
         }
 #endif
 
