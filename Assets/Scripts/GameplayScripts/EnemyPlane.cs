@@ -12,6 +12,7 @@ public class EnemyPlane : MonoBehaviour {
 
     void Start()
     {
+        transform.position = new Vector2(Random.Range(missile.transform.position.x-5f, missile.transform.position.x+5f),0);
         rb2d = GetComponent<Rigidbody2D>();
     }
 
