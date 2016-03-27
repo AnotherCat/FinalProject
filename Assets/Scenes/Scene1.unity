@@ -502,14 +502,9 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9440bb91bacea604cbe6cc3099b81124, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
-<<<<<<< HEAD
-  Speed: 200
-  shiftSpeed: 200
-=======
+  m_EditorClassIdentifier:
   Speed: 50
   shiftSpeed: 60
->>>>>>> a91c8b827f777d14b142e9f51075fd7c15e10027
   bootsMultiply: 3
   explodePS: {fileID: 19811490, guid: c7cc14a35648a9b43b4a8dd75fe87c76, type: 2}
   bootsPS: {fileID: 856655395}
@@ -1371,15 +1366,10 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c2511b6e94d423142873a59e81c9c044, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
-<<<<<<< HEAD
-  Speed: 199
-  shiftSpeed: 199
-=======
+  m_EditorClassIdentifier:
   Speed: 50
   shiftSpeed: 90
   maxRange: 4
->>>>>>> a91c8b827f777d14b142e9f51075fd7c15e10027
   missile: {fileID: 881632279}
 --- !u!50 &1676415742
 Rigidbody2D:

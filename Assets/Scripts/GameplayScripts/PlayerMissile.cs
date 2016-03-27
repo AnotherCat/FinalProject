@@ -37,6 +37,7 @@ public class PlayerMissile : MonoBehaviour {
 #else
         if(Input.GetKey(KeyCode.LeftArrow) && !GameOver)
         {
+
             rb2d.AddForce(new Vector2(shiftSpeed * -1 * Time.deltaTime * boots, 0));
         }else if(Input.GetKey(KeyCode.RightArrow) & !GameOver)
         {

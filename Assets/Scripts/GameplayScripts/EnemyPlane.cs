@@ -14,13 +14,10 @@ public class EnemyPlane : MonoBehaviour {
 
     void Start()
     {
-<<<<<<< HEAD
-=======
         Speed *= PlayerMissile.Level;
         shiftSpeed *= PlayerMissile.Level;
         maxRange *= PlayerMissile.Level;
 
->>>>>>> a91c8b827f777d14b142e9f51075fd7c15e10027
         rb2d = GetComponent<Rigidbody2D>();
     }
 
