@@ -5,7 +5,9 @@ public class PlayerMissile : MonoBehaviour {
 
     public float Speed = 200;
     public float shiftSpeed = 200;
-    public float bootsMultiply = 1;
+    public float bootsMultiply = 2;
+
+    private float boots = 1;
 
     public ParticleSystem explodePS;
     public Transform plane;
@@ -21,21 +23,21 @@ public class PlayerMissile : MonoBehaviour {
 
     void FixedUpdate()
     {
-        rb2d.AddForce(new Vector2(0, Speed * Time.deltaTime * bootsMultiply));
+        rb2d.AddForce(new Vector2(0, Speed * Time.deltaTime * boots));
 
 #if UNITY_ANDROID
 
 #else
         if(Input.GetKey(KeyCode.LeftArrow) && !GameOver)
         {
-            rb2d.AddForce(new Vector2(shiftSpeed * -1 * Time.deltaTime * bootsMultiply,0));
+            rb2d.AddForce(new Vector2(shiftSpeed * -1 * Time.deltaTime * boots, 0));
         }else if(Input.GetKey(KeyCode.RightArrow) & !GameOver)
         {
-            rb2d.AddForce(new Vector2(shiftSpeed * Time.deltaTime * bootsMultiply,0));
+            rb2d.AddForce(new Vector2(shiftSpeed * Time.deltaTime * boots, 0));
         }
         if(Input.GetKeyDown(KeyCode.Space) && !GameOver)
         {
-            bootsMultiply = 2;
+            boots = bootsMultiply;
         }
 #endif
 
