@@ -16,6 +16,7 @@ public class PlayerMissile : MonoBehaviour {
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        transform.position = new Vector2(Random.Range(Camera.main.transform.position.x - Camera.main.orthographicSize * Screen.width / Screen.height, Camera.main.transform.position.x + Camera.main.orthographicSize * Screen.width / Screen.height),transform.position.y);
     }
 
     void FixedUpdate()
