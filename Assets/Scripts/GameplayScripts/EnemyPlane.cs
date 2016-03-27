@@ -3,8 +3,10 @@ using System.Collections;
 
 public class EnemyPlane : MonoBehaviour {
 
-    public float Speed = 195;
-    public float shiftSpeed = 200;
+    public float Speed = 50;
+    public float shiftSpeed = 65;
+
+    public float maxRange = 2;
 
     public Transform missile;
 
@@ -12,7 +14,10 @@ public class EnemyPlane : MonoBehaviour {
 
     void Start()
     {
-        transform.position = new Vector2(Random.Range(missile.transform.position.x-5f, missile.transform.position.x+5f),0);
+        Speed *= PlayerMissile.Level;
+        shiftSpeed *= PlayerMissile.Level;
+        maxRange *= PlayerMissile.Level;
+
         rb2d = GetComponent<Rigidbody2D>();
     }
 
@@ -20,11 +25,11 @@ public class EnemyPlane : MonoBehaviour {
     {
         rb2d.AddForce(new Vector2(0, Speed * Time.deltaTime));
 
-        if (transform.position.x <= missile.transform.position.x && Vector2.Distance(transform.position, missile.position) < 8)
+        if (transform.position.x <= missile.transform.position.x && Vector2.Distance(transform.position, missile.position) < maxRange)
         {
             rb2d.AddForce(new Vector2(shiftSpeed * -1 * Time.deltaTime, 0));
         }
-        else if(transform.position.x > missile.transform.position.x && Vector2.Distance(transform.position, missile.position) < 8)
+        else if(transform.position.x > missile.transform.position.x && Vector2.Distance(transform.position, missile.position) < maxRange)
         {
             rb2d.AddForce(new Vector2(shiftSpeed * Time.deltaTime, 0));
         }
