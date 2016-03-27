@@ -39,7 +39,7 @@ public class PlayerMissile : MonoBehaviour {
 #endif
 
 
-        if(Vector2.Distance(transform.position,plane.position) > 10)
+        if(Vector2.Distance(transform.position,plane.position) > 15)
         {
             Invoke("BeforeGameover", 1.0f);
         }
