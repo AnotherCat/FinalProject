@@ -18,6 +18,7 @@ public class UIManager : MonoBehaviour {
     void Start()
     {
         Time.timeScale = 1;
+        GetComponent<AudioSource>().Play();
         levelText.text = "Level " + PlayerMissile.Level;
     }
 
