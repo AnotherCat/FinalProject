@@ -29,16 +29,31 @@ public class PlayerMissile : MonoBehaviour {
         transform.position = new Vector2(Random.Range(Camera.main.transform.position.x - Camera.main.orthographicSize * Screen.width / Screen.height, Camera.main.transform.position.x + Camera.main.orthographicSize * Screen.width / Screen.height),transform.position.y);
     }
 
-    void FixedUpdate()
+    void Update()
     {
         rb2d.AddForce(new Vector2(0, Speed * Time.deltaTime * boots));
 
 #if UNITY_ANDROID
 
-#else
-        if(Input.GetKey(KeyCode.LeftArrow) && !GameOver)
+        if (Input.acceleration.x < -0.15 && !GameOver)
         {
+            rb2d.AddForce(new Vector2(shiftSpeed * -1 * Time.deltaTime * boots, 0));
+        }
+        else if (Input.acceleration.x > 0.15 && !GameOver)
+        {
+            rb2d.AddForce(new Vector2(shiftSpeed * Time.deltaTime * boots, 0));
+        }
 
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && !GameOver)
+        {
+            boots = bootsMultiply;
+            bootsPS.enableEmission = true;
+            Camera.main.GetComponent<AudioSource>().pitch = 1.2f;
+        }
+
+#else
+        if (Input.GetKey(KeyCode.LeftArrow) && !GameOver)
+        {
             rb2d.AddForce(new Vector2(shiftSpeed * -1 * Time.deltaTime * boots, 0));
         }else if(Input.GetKey(KeyCode.RightArrow) & !GameOver)
         {

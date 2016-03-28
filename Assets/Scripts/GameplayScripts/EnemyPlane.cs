@@ -21,7 +21,7 @@ public class EnemyPlane : MonoBehaviour {
         rb2d = GetComponent<Rigidbody2D>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
         rb2d.AddForce(new Vector2(0, Speed * Time.deltaTime));
 
