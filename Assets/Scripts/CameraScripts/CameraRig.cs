@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 public class CameraRig : MonoBehaviour {
 
@@ -7,7 +7,8 @@ public class CameraRig : MonoBehaviour {
     public float m_ScreenEdgeBuffer = 4f;
     public float m_MinSize = 6.5f;
     //[HideInInspector]
-    public Transform[] m_Targets;
+    //public Transform[] m_Targets = new Transform[10];
+    public List<Transform> m_Targets = new List<Transform>();
 
     private Camera m_Camera;
     private float m_ZoomSpeed;
@@ -21,6 +22,11 @@ public class CameraRig : MonoBehaviour {
 
     private void FixedUpdate()
     {
+        if(m_Targets.Count <= 0)
+        {
+            return;
+        }
+
         Move();
         Zoom();
     }
@@ -37,7 +43,8 @@ public class CameraRig : MonoBehaviour {
         Vector3 averagePos = new Vector3();
         int numTargets = 0;
 
-        for (int i = 0; i < m_Targets.Length; i++)
+        //for (int i = 0; i < m_Targets.Length; i++)
+        for(int i = 0;i < m_Targets.Count;i++)
         {
             if (!m_Targets[i].gameObject.activeSelf)
                 continue;
@@ -66,7 +73,8 @@ public class CameraRig : MonoBehaviour {
 
         float size = 0f;
 
-        for (int i = 0; i < m_Targets.Length; i++)
+        //for (int i = 0; i < m_Targets.Length; i++)
+        for(int i = 0;i < m_Targets.Count; i++)
         {
             if (!m_Targets[i].gameObject.activeSelf)
                 continue;
