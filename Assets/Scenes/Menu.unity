@@ -560,7 +560,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "BE MISSILE\n\u0E40\u0E1B\u0E47\u0E19 \u0E08\u0E23\u0E27\u0E14"
+  m_Text: BE MISSILE
 --- !u!222 &1466082263
 CanvasRenderer:
   m_ObjectHideFlags: 0
